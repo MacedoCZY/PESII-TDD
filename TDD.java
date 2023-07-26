@@ -31,17 +31,23 @@ public class TDD{
 		}		
 		
 		protected String currency();
+		
 		String currency() {
 			return currency;
+		}
+		static Money dollar(int amount)  {
+			return new Dollar(amount, "USD");
+		}
+
+		static Money franc(int amount) {
+			return new Franc(amount, "CHF");
 		}
 	}
 	
 	class Dollar extends Money{
-	    private String currency;
-		
-		Dollar(int amount) {
-			this.amount= amount;
-			accurency = "USD";
+		Dollar(int amount, String currency)  {
+			this.amount = amount;
+			this.currency = currency;
 		}
 		Money times(int multiplier)  {
 			return Money.dollar(amount * multiplier);
@@ -49,11 +55,9 @@ public class TDD{
     }	
 
 	class Franc extends Money{   
-	    private String currency;
-		
-		Franc(int amount) {      
-			this.amount= amount;
-			accurency = "CHF";
+		Franc(int amount, String currency) {
+			this.amount = amount;
+			this.currency = currency;
 		}					
 		Money times(int multiplier)  {
 			return Money.franc(amount * multiplier);

@@ -34,9 +34,11 @@ public class TDD{
 	}
 	
 	class Dollar extends Money{
-		private int amount;
+	    private String currency;
+		
 		Dollar(int amount) {
-		  this.amount= amount;
+			this.amount= amount;
+			accurency = "CHF";
 		}
 		Money times(int multiplier) {
 			return new Dollar(amount * multiplier);
@@ -48,9 +50,11 @@ public class TDD{
     }	
 
 	class Franc extends Money{   
-		private int amount;					
-			Franc(int amount) {      
+	    private String currency;
+		
+		Franc(int amount) {      
 			this.amount= amount;
+			accurency = "CHF";
 		}					
 			Money times(int multiplier)  {      
 			return new Franc(amount * multiplier);					

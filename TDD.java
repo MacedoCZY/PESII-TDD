@@ -55,18 +55,6 @@ public class TDD{
 			return new Money(amount * multiplier, currency);
 		}
 	}
-	
-	class Dollar extends Money{
-		Dollar(int amount, String currency)  {
-			super(amount, currency);
-		}
-    }	
-
-	class Franc extends Money{   
-		Franc(int amount, String currency) {
-			super(amount, currency);
-		}						
-	}
 
 	public void testCurrency() {
 		assertEquals("USD", Money.dollar(1).currency());

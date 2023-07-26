@@ -29,6 +29,8 @@ public class TDD{
 		static Money franc(int amount) {
 			return new Franc(amount);
 		}		
+		
+		abstract String currency();
 	}
 	
 	class Dollar extends Money{
@@ -39,6 +41,10 @@ public class TDD{
 		Money times(int multiplier) {
 			return new Dollar(amount * multiplier);
 		}
+		
+		String currency() {
+			return "USD";
+		}
     }	
 
 	class Franc extends Money{   
@@ -48,8 +54,18 @@ public class TDD{
 		}					
 			Money times(int multiplier)  {      
 			return new Franc(amount * multiplier);					
-		}   		
+		}   
+
+		String currency() {
+			return "CHF";
+		}		
 	}
+
+	public void testCurrency() {
+		assertEquals("USD", Money.dollar(1).currency());
+		assertEquals("CHF", Money.franc(1).currency());
+	}
+
 
     public void testMultiplication() {
 		Money five = Money.dollar(5);

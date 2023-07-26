@@ -42,12 +42,16 @@ public class TDD{
 		static Money franc(int amount) {
 			return new Franc(amount, "CHF");
 		}
+				
+		Money(int amount, String currency) {
+			this.amount = amount;
+			this.currency = currency;
+		}
 	}
 	
 	class Dollar extends Money{
 		Dollar(int amount, String currency)  {
-			this.amount = amount;
-			this.currency = currency;
+			super(amount, currency);
 		}
 		Money times(int multiplier)  {
 			return Money.dollar(amount * multiplier);
@@ -56,9 +60,8 @@ public class TDD{
 
 	class Franc extends Money{   
 		Franc(int amount, String currency) {
-			this.amount = amount;
-			this.currency = currency;
-		}					
+			super(amount, currency);
+		}				
 		Money times(int multiplier)  {
 			return Money.franc(amount * multiplier);
 		}		
